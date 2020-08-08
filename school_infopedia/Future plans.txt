@@ -1,0 +1,26 @@
+Homepage
+ - Add a do you know section
+ - Create a tiled design
+ - Book of the week
+
+
+Articles
+ - Google?
+ - Apple?
+
+
+More pages
+ - Terminology breakdown
+ - Book of the week archives
+
+
+Menu page
+ - For more articles
+
+Overall design
+ - More professional
+   - Change background
+
+
+Menu
+ - Menu in seperate file

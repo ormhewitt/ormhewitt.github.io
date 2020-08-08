@@ -1,0 +1,41 @@
+body {
+        background-image: url("back.jpg");
+	color: rgb(6,71,128);
+	font-family:monospace;
+} 
+
+strong {color:rgb(8,84,199);font-size:24pt;font-family:monospace;}
+a {color:black}
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.alert {
+  padding: 20px;
+  background-color: 66CD00;
+  color: rgb(8,84,199);
+}
+
+
+.topnav {
+  overflow: hidden;
+  background-color: rgb(244,152,89);
+}
+
+.topnav a {
+  float: left;
+  color: rgb(6,71,128);
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: rgb(252,72,71);
+  color: black;
+}
+
+.topnav a.active {
+  background-color: rgb(251,98,82);
+  color: black;
+}
