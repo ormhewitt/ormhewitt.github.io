@@ -1,12 +1,12 @@
 body {
-        background-COLOR: lightblue;
+        background-COLOR: #06aed5;
 	color: rgb(6,71,128);
-	font-family:monospace;
+	font-family:verdana;
 } 
 
 .topnav {
   overflow: hidden;
-  background-color: rgb(244,152,89);
+  background-color: #cbbf7a;
 }
 
 .topnav a {
@@ -19,11 +19,14 @@ body {
 }
 
 .topnav a:hover {
-  background-color: rgb(252,72,71);
+  background-color: #fff1d0;
   color: black;
 }
 
 .topnav a.active {
-  background-color: rgb(251,98,82);
+  background-color: #d76a03;
   color: black;
 }
+h4 {
+	color: #086788;
+} 
