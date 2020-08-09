@@ -1,12 +1,12 @@
 body {
-        background-COLOR: #06aed5;
+        background-COLOR: #4abdac;
 	color: rgb(6,71,128);
 	font-family:verdana;
 } 
 
 .topnav {
   overflow: hidden;
-  background-color: #cbbf7a;
+  background-color: #f7b733;
 }
 
 .topnav a {
@@ -24,10 +24,10 @@ body {
 }
 
 .topnav a.active {
-  background-color: #d76a03;
+  background-color: #fc4a1a;
   color: black;
 }
 h4 {
-	color: #06477e;
+	color: #dfdce3;
 font-weight: normal;
 } 
