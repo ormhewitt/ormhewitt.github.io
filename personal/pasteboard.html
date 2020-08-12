@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Pastebin</title>
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+	<meta content="Matt Moderwell" name="author">
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="theme-color" content="#000">
+	<!--Fav-->
+	<link href="" rel="shortcut icon">
+	<!--styles-->
+	<!--google fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<meta content="" name="description">
+	<meta name="keywords" content="">
+	<style type="text/css" media="screen">
+	html {
+		box-sizing: border-box;
+		transition: all ease-in-out .4s;
+	}
+
+	body,
+	html {
+		left: 0;
+		top: 0;
+		margin: 0px;
+		padding: 0px;
+		overflow-x: hidden;
+		height: 100%;
+		font-family: 'Open Sans', sans-serif;
+	}
+
+	.container {
+		margin: 0 auto;
+		max-width: 60rem;
+		padding: 2.0rem 2.0rem;
+		position: relative;
+		width: 100%;
+	}
+
+	.input-wrapper {
+		width: 76%;
+		position: relative;
+		display: inline-flex;
+	}
+
+	.input-wrapper::after {
+		content: attr(data-text);
+		font-size: 1.5rem;
+		line-height: 0;
+		height: 0;
+		max-width: 100%;
+		border-bottom: 3px solid #fff;
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		height: 3px;
+		overflow: hidden;
+		user-select: none;
+		color: transparent;
+	}
+
+	input {
+		color: #212121;
+		font-size: 1em;
+		border: none;
+		padding: 0;
+		border-radius: 0;
+		outline: none;
+		width: auto;
+		min-width: 100%;
+		line-height: 2.5em;
+		border-bottom: 3px solid #333333;
+		background-color: transparent;
+	}
+
+	#new {
+		font-size: 30px;
+	}
+
+	#new_div {
+		top: 10px;
+	}
+
+	#new_div2 {
+		top: 10px;
+	}
+
+	.contents {}
+
+	.header {
+		padding: 2% 0 5% 0;
+	}
+
+	#message {
+		transition: all ease-in .4s;
+		opacity: 0;
+		text-align: center;
+		color: #689cff;
+	}
+
+	.entry_div {
+		padding: 10px 0;
+	}
+
+	#description_entry {
+		display: none;
+	}
+
+	.entry {
+		min-width: 50%;
+		padding: 1px 10px;
+		background: #f3f3f3;
+		border-radius: 35px;
+		color: #212121;
+		display: inline-flex;
+		transition: all ease-in-out 1s;
+	}
+
+	.entry p {
+		padding: 0 25px;
+		font-weight: 600;
+		cursor: pointer;
+		transition: all ease .2s;
+	}
+
+	.entry p:hover {
+		color: #969696;
+	}
+
+	.removed {
+		transition: all ease-in-out 0.25s;
+		transform: translateX(-70%);
+	}
+
+	.icon {
+		display: inline-flex;
+		padding: 0 20px;
+		top: 7px;
+		position: relative;
+	}
+
+	.material-icons {
+		transition: all ease .2s;
+		cursor: pointer;
+	}
+
+	.material-icons:hover {
+		transform: scale(1.2);
+	}
+
+	.description {
+		font-size: 0.9rem;
+		text-indent: 1em;
+		color: #7C7C7C;
+	}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<div class="header">
+			<div id="message">Hello</div>
+			<br>
+			<div class="input-wrapper" id="snippet_entry" data-text="">
+				<input id="new_entry" type="text" placeholder="Add a new snippet...">
+				<div class="icon" id="new_div"><i id="new" class="material-icons">navigate_next</i></div>
+			</div>
+			<div class="input-wrapper" id="description_entry" data-text="">
+				<input id="new_entry_desc" type="text" placeholder="Optional: a short description of the snippet">
+				<div class="icon" id="new_div2"><i id="new2" class="material-icons">add</i></div>
+			</div>
+		</div>
+		<div class="contents">
+		</div>
+	</div>
+	<script>
+	let message = document.getElementById('message');
+	let container = document.querySelector('.contents');
+
+	function renderEntry(text, description) {
+		let data = JSON.parse(localStorage.getItem("entries"));
+		let div = document.createRange().createContextualFragment(`<div class="entry_div">
+					<p class="description">${description}</p>
+					<div id="${text}" class="entry">
+						<p>${text}</p>
+					</div>
+					<div class="icon" id="del ${text}"><i class="material-icons">delete</i></div>
+					</div>
+					`);
+		container.insertBefore(div, container.firstChild);
+		let entry = document.getElementById(text);
+		let remover = document.getElementById(`del ${text}`);
+		entry.addEventListener('click', () => {
+			const selection = window.getSelection();
+			const range = document.createRange();
+			range.selectNodeContents(entry);
+			selection.removeAllRanges();
+			selection.addRange(range);
+			document.execCommand('copy');
+			selection.removeAllRanges();
+			const original = entry.textContent;
+			message.textContent = 'Copied!';
+			message.style.opacity = '1';
+			setTimeout(() => {
+				message.style.opacity = '0';
+			}, 1200);
+		});
+
+		remover.addEventListener('click', () => {
+			let target = document.getElementById(`del ${data[text][0]}`);
+			delete data[text]
+			localStorage.setItem("entries", JSON.stringify(data));
+			target.parentNode.classList += " removed";
+			setTimeout(() => {
+				target.parentNode.parentNode.removeChild(target.parentNode);
+			}, 250);
+
+		});
+	};
+
+	function enter_handler2(e) {
+		if (e.keyCode === 13) {
+			addEntry2()
+		}
+	}
+
+	function enter_handler(e) {
+		if (e.keyCode === 13) {
+			addEntry()
+		}
+	}
+
+	function addEntry2() {
+		const new_entry = document.getElementById('new_entry');
+		const new_entry2 = document.getElementById('new_entry_desc');
+		let data = JSON.parse(localStorage.getItem("entries"));
+		document.removeEventListener('keyup', enter_handler2);
+		document.addEventListener('keyup', enter_handler);
+
+		if (data) {
+			data[new_entry.value] = [new_entry.value, new_entry2.value]
+			localStorage.setItem("entries", JSON.stringify(data));
+			renderEntry(new_entry.value, new_entry2.value);
+			new_entry.value = '';
+			new_entry2.value = '';
+			document.getElementById('snippet_entry').style.display = 'inline-flex';
+			document.getElementById('description_entry').style.display = 'none';
+		} else {
+			data = {}
+			data[new_entry.value] = [new_entry.value, new_entry2.value]
+			localStorage.setItem("entries", JSON.stringify(data));
+			renderEntry(new_entry.value, new_entry2.value);
+			new_entry.value = '';
+			new_entry2.value = '';
+			document.getElementById('snippet_entry').style.display = 'inline-flex';
+			document.getElementById('description_entry').style.display = 'none';
+		}
+	}
+
+	function addEntry() {
+		const new_entry = document.getElementById('new_entry');
+		const new_entry2 = document.getElementById('new_entry_desc');
+		if (new_entry.value) {
+			// move to next stage, adding description
+			document.getElementById('snippet_entry').style.display = 'none';
+			document.getElementById('description_entry').style.display = 'inline-flex';
+
+			document.getElementById('new').removeEventListener('click', addEntry);
+			document.getElementById('new2').addEventListener('click', addEntry2);
+			document.removeEventListener('keyup', enter_handler);
+			document.addEventListener('keyup', enter_handler2);
+		}
+	}
+
+
+	const new_button = document.getElementById('new');
+	new_button.addEventListener('click', addEntry);
+	document.addEventListener('keyup', enter_handler);
+
+	let data = JSON.parse(localStorage.getItem("entries"));
+	for (let key in data) {
+		console.log(key)
+		let div = document.createRange().createContextualFragment(`<div class="entry_div">
+					<p class="description">${data[key][1]}</p>
+					<div id="${data[key][0]}" class="entry">
+						<p>${data[key][0]}</p>
+					</div>
+					<div class="icon" id="del ${data[key][0]}"><i class="material-icons">delete</i></div>
+					</div>
+					`);
+		container.insertBefore(div, container.firstChild);
+		let entry = document.getElementById(data[key][0]);
+		let remover = document.getElementById(`del ${data[key][0]}`);
+		entry.addEventListener('click', () => {
+			const selection = window.getSelection();
+			const range = document.createRange();
+			range.selectNodeContents(entry);
+			selection.removeAllRanges();
+			selection.addRange(range);
+			document.execCommand('copy');
+			selection.removeAllRanges();
+			const original = entry.textContent;
+			message.textContent = 'Copied!';
+			message.style.opacity = '1';
+			setTimeout(() => {
+				message.style.opacity = '0';
+			}, 1200);
+		});
+
+		remover.addEventListener('click', () => {
+			let target = document.getElementById(`del ${data[key][0]}`);
+			delete data[key]
+			localStorage.setItem("entries", JSON.stringify(data));
+			target.parentNode.parentNode.removeChild(target.parentNode);
+		});
+	};
+	</script>
+</body>
+
+</html>

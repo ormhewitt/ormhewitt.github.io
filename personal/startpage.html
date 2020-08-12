@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAaklEQVQ4T2NkoDJgpLJ5DKMGUh6i
+QysMHRgYGOZDPZ3IwMBwAMomSRzZyw8YGBjkoYaA2IpIbKLFkQ38wMDAwA815CEDA4MClE2SOLKB
+IK8tgBqSgOZlosWHVixTnqoZGEYLByqEItWTDQDplxgV48tEUQAAAABJRU5ErkJggg== -->
+<!-- iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACGklEQVRYR+2XP1AaQRTGP5S58+Jg
+FEkmgS7QIR1YZejkqkRCFTrGTpMKSQWlVv6pjHaGDitCpLrQOVaSDuwgnUlmAmeMUbibKJm9GW44
+5xzm2M3QcNXezt57v/1299t3Ngz5sQ05P0YApgq8iMYSNp7b6Kiqi3qJOK4BRX1XLOSzZrHMAV7H
+G66Vt7Ocx0OdXz07Q2N3p1k8yJlOxhzgVazj3tymTt4N8C2VRPFj3jSXZYDrchnXX06g1us6IOf1
+QgiGMBmaN4VmAnDbaqGx9x5jgoDJ52HwPp/WJv1KrYar4yOt7Vp+o/X3PkwASPLxaSdm4vF7l+Y8
+l8PNL1mDYArQqlRwWZLwOJnquy9+rK/h4ctFCIGAPpZaATm7jwl/AA9CIS0o2dmXnyUop1Xw/jk4
+IiK6J4bskfZpBc7EEjuA75k0HiVXYXc6taBkObhnPkyJIn5LEtSvNV32v7KMn9tbeLq2zg6ASNh7
+LAd5pzqGgyS8CzwCGCnwXxXodSfiEXL2A56kM+yOIXE31/KK0Qe8PkxFRIMzkjvh4rAAITgPRzjM
+DoB4vN3j0YOSWf4pSWhXqwYAu9sNx4JosGEygNqKScLm3q7BDfteCj0DqAFILOLxF58KcIgRzYat
+VEtMAAhE995XanV02q17RbhbTTEDsCI7XT0w9KI0Gktggt+EoswOOmv9O55voq2kLJXl1EktBBj9
+mg1dgX/h1IwwAcIejwAAAABJRU5ErkJggg== -->
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="data:image/x-icon;base64, iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAaklEQVQ4T2NkoDJgpLJ5DKMGUh6i
+QysMHRgYGOZDPZ3IwMBwAMomSRzZyw8YGBjkoYaA2IpIbKLFkQ38wMDAwA815CEDA4MClE2SOLKB
+IK8tgBqSgOZlosWHVixTnqoZGEYLByqEItWTDQDplxgV48tEUQAAAABJRU5ErkJggg==" rel="icon" type="image/x-icon" />
+    <link rel="stylesheet" href="">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <title>New Tab</title>
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            max-width: 100vw;
+            background-color: #fff;
+        }
+        .top_grid {
+            display: grid;
+            grid-template-columns: 30% auto 30%;
+            grid-template-rows: repeat(2, 20vh);
+            grid-gap: 1em;
+        }
+        .link_grid {
+            display: grid;
+            grid-template-columns: 20% 20% 20% 20% 20%;
+            grid-template-rows: repeat(1, 55vh);
+            grid-gap: 0em;
+        }
+        #greeting {
+            grid-column-start: 2;
+            grid-column-end: 3;
+            grid-row-start: 1;
+            grid-row-end: 2;
+            place-self: center;
+        }
+        #search {
+            grid-column-start: 2;
+            grid-column-end: 3;
+            grid-row-start: 2;
+            grid-row-end: 3;
+        }
+        .search_box {
+            border-radius: 4em;
+            padding: 4px;
+            background: #f4f4f4;
+        }
+        .search_form input {
+            font-size: 0.9em;
+            border: none;
+            text-indent: 16px;
+            background: transparent;
+            outline: none;
+            height: 2.5em;
+            min-width: 80%;
+        }
+        #search_icon {
+            float: right;
+            cursor: pointer;
+            padding: 14px;
+            outline: none;
+            border: none;
+            background: none;
+        }
+        #productivity {
+            grid-column-start: 2;
+            grid-column-end: 3;
+            grid-row-start: 1;
+            grid-row-end: 1;
+            justify-self: center;
+        }
+        #school {
+            grid-column-start: 3;
+            grid-column-end: 4;
+            grid-row-start: 1;
+            grid-row-end: 1;
+            justify-self: center;
+        }
+        #fun {
+            grid-column-start: 4;
+            grid-column-end: 5;
+            grid-row-start: 1;
+            grid-row-end: 1;
+            justify-self: center;
+        }
+        .title {
+            text-align: center;
+            font-size: 1.3em;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            padding: 5px 0;
+        }
+        a {
+            display: inline-block;
+            position: relative;
+            color: #333333;
+            text-decoration: none;
+            padding: 0.2em 0.05em;
+            /*border-bottom: 2px solid #333333;*/
+        }
+        a:hover {
+            color: #efefef;
+        }
+        a:after {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: #333333;
+            z-index: -1;
+            transition: all 0.1s cubic-bezier(0.000, 0.590, 1.000, 0.260);
+        }
+        a:hover:after {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: #333333;
+            z-index: -1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="top_grid">
+        <h2 class="" id="greeting">Salutations</h2>
+        <p id="weather"></p>
+        <div id="search">
+            <!-- Search -->
+            <div class="search_box">
+                <form class="search_form" method="get" action="https://google.com/search" autocomplete="off">
+                    <input type="text" name="q" placeholder="Scour the web (mainly Google)" autofocus />
+                    <button id="search_icon" class="fas fa-search" type="submit" formaction="https://google.com/search"></button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="link_grid">
+        <div id="productivity">
+            <!-- <h3 class="title">Productivity</h3> -->
+            <ul>
+                <li><i class="far fa-calendar"></i>
+                    <a href="https://calendar.google.com">Calendar</a></li>
+                <li><i class="fab fa-google-drive"></i>
+                    <a href="https://drive.google.com/">Google drive</a></li>
+                <li><i class="far fa-clipboard"></i>
+                    <a href="file:///C:/pasteboard.html">Clipboard</a></li>
+                <li><i class="fab fa-github"></i>
+                    <a href="https://github.com/">Github</a></li>
+            </ul>
+        </div>
+        <div id="school">
+            <!-- <h3 class="title">School</h3> -->
+            <ul>
+                <li><i class="fas fa-graduation-cap"></i>
+                    <a href="https://kingswood.fireflycloud.net/">Firefly</a></li>
+                <li><i class="fas fa-at"></i>
+                    <a href="https://outlook.office.com/">Webmail</a></li>
+                <li><i class="fas fa-server"></i>
+                    <a href="https://foldr.kingswood.bath.sch.uk/">Foldr</a></li>
+                <li><i class="fas fa-project-diagram"></i>
+                    <a href="https://app.wisemapping.com/c/login">Wisemapping</a></li>
+            </ul>
+        </div>
+        <div id="fun">
+            <!-- <h3 class="title">For Fun</h3> -->
+            <ul>
+                <li><i class="fab fa-youtube"></i>
+                    <a href="https://youtube.com/">YouTube</a></li>
+                <li><i class="fab fa-reddit-alien"></i>
+                    <a href="https://reddit.com/">Reddit</a></li>
+                <li><i class="fab fa-twitter"></i>
+                    <a href="https://twitter.com/">Twitter</a></li>
+                <li><i class="fab fa-amazon"></i>
+                    <a href="https://amazon.co.uk/">Amazon</a></li>
+            </ul>
+        </div>
+    </div>
+    <script>
+    const name = 'Oliver';
+    let time = new Date();
+
+    let weather_icons = {
+        "windy": `<i class="fas fa-wind"></i>`,
+        "sunny": `<i class="fas fa-sun"></i>`,
+        "rainy": `<i class="fas fa-cloud-rain"></i>`,
+        "showers": `<i class="fas fa-cloud-showers-heavy"></i>`,
+        "snow": `<i class="far fa-snowflake"></i>`,
+        "night": `<i class="fas fa-moon"></i>`,
+        "cloudy_night": `<i class="fas fa-cloud-moon"></i>`,
+        "cloudy": `<i class="fas fa-cloud"></i>`
+    }
+
+    function isMorning() {
+        let hours = time.getHours();
+        if (hours >= 12) return false
+        else return true
+    }
+
+    function greeting() {
+        const morning_greetings = ['Good morning,', 'Morning,', 'Rise n\' shine,', 'Greetings', 'Hi there,', 'Welcome back,'];
+        const afternoon_greetings = ['Good afternoon,', 'Afternoon,', 'Greetings,', 'Welcome', 'Hi', 'Hello', 'Welcome back,'];
+        const night_greetings = ['Good evening,', 'Evening,', 'Welcome,', 'Hi', 'Hello', 'Good night,', 'Sweet dreams,', 'Welcome back,'];
+        const greet_html = document.getElementById('greeting');
+        if (isMorning()) {
+            greet_html.innerHTML = morning_greetings[Math.floor(Math.random() * morning_greetings.length)] + " " + name;
+        } else if (time.getHours() < 17) { //if its the afternoon and before 5 o'clock
+            greet_html.innerHTML = afternoon_greetings[Math.floor(Math.random() * afternoon_greetings.length)] + " " + name;
+        } else {
+            greet_html.innerHTML = night_greetings[Math.floor(Math.random() * night_greetings.length)] + " " + name;
+        }
+    }
+    greeting()
+
+    function get_weather() {
+        function resListen() {
+            let weather = JSON.parse(this.responseText);
+            console.log(weather);
+            let output;
+            if (weather.error) {
+                output = weather.error;
+            } else {
+                let icon = weather.curr_short;
+                output = `${Math.round(weather.curr_temperature)}\xB0F and ${(weather.curr_summary).toLowerCase()}`;
+            }
+            document.getElementById('weather').innerHTML = output;
+        }
+
+        var weatherReq = new XMLHttpRequest();
+        weatherReq.addEventListener("load", resListen);
+        weatherReq.open("GET", "https://api.darksky.net/forecast/5e746e713c26d1031a4f05f947afec40/42.05619,-87.692334");
+        weatherReq.send();
+    }
+    get_weather()
+    </script>
+</body>
+
+</html>
