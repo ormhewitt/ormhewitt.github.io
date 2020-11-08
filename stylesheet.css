@@ -1,6 +1,6 @@
 body {
-        background-COLOR: #efefef;
-	color: rgb(6,71,128);
+        background-COLOR: #395c6b;
+	color: #E6AF2E;
 	font-family:verdana;
 } 
 
@@ -11,7 +11,7 @@ body {
 
 .topnav a {
   float: left;
-  color: rgb(6,71,128);
+  color: #AFBBF2;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -19,16 +19,16 @@ body {
 }
 
 .topnav a:hover {
-  background-color: #fff1d0;
+  background-color: #B6C1F3;
   color: black;
 }
 
 .topnav a.active {
-  background-color: #ff3b3f;
+  background-color: #80A4ED;
   color: black;
 }
 h4 {
-	color: #a9a9a9;
+	color: #5FAD41;
 font-weight: normal;
 } 
 
