@@ -6,8 +6,11 @@ body {
 
 .topnav {
   overflow: hidden;
-  background-color: #caebf2;
-  border-radius: 8px
+  background-color: white;
+  outline-radius: 8px;
+  outline-style: solid;
+  outline-color: blue;
+  outline-width: medium;
 }
 
 .topnav a {
