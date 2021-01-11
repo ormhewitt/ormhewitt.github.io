@@ -9,8 +9,8 @@ body {
   background-color: white;
   border-radius: 8px;
   border-style: solid;
-  border-color: blue;
-  border-width: medium;
+  border-color: purple;
+  border-width: 2px;
 }
 
 .topnav a {
@@ -30,7 +30,6 @@ body {
 .topnav a.active {
   background-color: #80A4ED;
   color: black;
-  border-radius: 8px
 }
 h4 {
 	color: #5FAD41;
