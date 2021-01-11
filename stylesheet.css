@@ -7,6 +7,7 @@ body {
 .topnav {
   overflow: hidden;
   background-color: #caebf2;
+  border-radius: 8px
 }
 
 .topnav a {
