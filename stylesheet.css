@@ -11,6 +11,7 @@ body {
   border-style: solid;
   border-color: #9269D4;
   border-width: 2px;
+  display:inline-block;
 }
 
 .topnav a {
@@ -37,13 +38,14 @@ font-weight: normal;
 } 
 
 .button {
-  border: 2px;
-  border-radius: 8px;
-  border-color: mediumpurple;
+  border: none;
   color: white;
+  padding: 15px 32px;
   text-align: center;
+  text-decoration: none;
   display: inline-block;
   font-size: 16px;
+  margin: 4px 2px;
   cursor: pointer;
 }
 .square {
