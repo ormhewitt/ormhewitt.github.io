@@ -33,6 +33,9 @@ body {
   background-color: #B19CD9;
   color: black;
 }
+.topnav-right {
+  float: right;
+}
 h4 {
 	color: #5FAD41;
 font-weight: normal;
